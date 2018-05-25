@@ -1,0 +1,14 @@
+---
+title: 'Lab 1: Accessing Human Candidate Gene Region Data – UCP1'
+author: "Becca DeCamp"
+date: "5/25/2018"
+output: html_document
+---
+
+### Introduction to the International Genome Sample Resource (Formerly known as the 1000 Genomes Project)
+
+![](1KGheader.png)
+
+
+
+
