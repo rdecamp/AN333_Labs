@@ -70,12 +70,30 @@ For more information about 1KG and IGSR, visit <http://www.internationalgenome.o
 
 ## A Brief Understanding the Bioinformatics Used To Create The 1KG Database
 <br>
+Bioinformatics is the "science of developing methods and software tools for collecting and understanding biological data." The 1KG Project, or even digitally recording the information DNA gives us, would not have been possible without this field. To understand the files that we will be working with (such as VCF files, which we will discuss later), it is beneficial to know how raw data is transformed in to digital information. In order to explain this process, I have included a simple flowchart that I will walk through. 
+<br> 
+<br>
+
+![](fastq-vcf.jpg)
+<br>
+<br>
+
+The first step in this flowchart is the DNA sequencing itself. There are several kinds of sequencing, but we know from the 1KG paper we read that they used what is called Illumina sequencing. Illumina sequencing is a type of next-generation sequencing (NGS on the diagram). All NGS is is a faster, more efficient, and more in-depth process of sequencing that has revolutionized the study of genomics. Illumina sequencing was invented by the Illumina company, and uses a unique method of sequencing that makes it one of the most efficient, affordable, and accurate ways of sequencing that we have today. Illumina sequencing in itself is an incredibly complex process that we won't talk about here, but a good video that explains the process can be found here: <https://www.youtube.com/watch?annotation_id=annotation_228575861&feature=iv&src_vid=womKfikWlxM&v=fCd6B5HRaZ8>. 
+<br>
+<br>
+DNA sequence reads don't come out of the machine nicely put together and cleaned, however. There are a few more steps to make them in to nice, neat files. As shown in the diagram, the output of a sequencing machine is a file type called a Fastq file. A Fastq file consists of a raw nucleotide sequence that is not aligned to a reference genome, and its quality scores, which are scores that tells how reliable the sequencing read for each base is. You can work with these files, but without aligning them to a reference genome, we won't be able to get as much from them as we want. That's where the next step in the diagram comes in. 
+<br>
+<br>
+Aligning a DNA sequence is the process of taking a chunk of DNA sequence and using an algorithm that compares that chunk to a reference genome to figure out where in the genome that chunk goes. This is done with all the sequence chunks that come from the initial Fastq file until you have a full genome. Once you have aligned your Fastq sequence to a reference sequence, you have a BAM file. A BAM file therefore not only contains an entire genome's worth of genetic code, but also gives information about where any particular piece of code falls within the genome. These files are good to work with if you need an entire genome's worth of information.
+<br>
+<br>
+The final step in the flowchart is the VCF file, which is what we will be working with in our class. VCF files are the result of picking out the variant positions from a BAM file and identifying the genotypes of the genome you sequenced. Below, we will look at the VCF file type more in-depth, as we will be using VCF files in this class. 
 <br>
  
 ## Overview of the Variant Call Format (VCF) 
 <br>
 
-For the purposes of our class, we will be using VCF files to look at our candidate gene, UCP1. The VCF file format is, put simply, one of computer file formats that genetic information can be stored in. VCF files in particular are a way of formatting SNP-only information without having to deal with the rest of the sequence that the SNPs come from. Other file types, such as BAM files that contain information about every single base, have their own uses but for the purposes of our study (and most population genetics studies) they simply contain way more information than we need. Seriously, a BAM file containing an entire genome can be almost a terabyte (1000 gigabytes) in size! 
+In our labs, we will be using VCF files to look at our candidate gene, UCP1. The VCF file format is a computer file format that genetic information can be stored in, as we have seen above. VCF files in particular are a way of formatting SNP-only information without having to deal with the rest of the sequence that the SNPs come from. Other file types, such as BAM files, have their own uses but for the purposes of our study (and most population genetics studies) they simply contain way more information than we need. Seriously, a BAM file containing an entire genome can be almost a terabyte (1000 gigabytes) in size! 
 <br>
 VCF files are a text-file format which can be opened with a plain text editor on your computer, and can be analyzed using various softwares (including VCFtools for Perl, which is what we will be using). Below I have included an example screenshot of what a VCF file looks like when opened in a plain text editor. 
 <br>
@@ -284,7 +302,6 @@ We check our file to see if the body is there because sometimes the server will 
 ### Congratulations, you now have your genetic data!
 
 
-khkjh
 
 
 
