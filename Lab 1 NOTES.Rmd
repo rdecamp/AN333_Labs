@@ -1,0 +1,6 @@
+---
+title: "Lab 1 NOTES"
+author: "Becca DeCamp"
+date: "5/31/2018"
+output: html_document
+---
