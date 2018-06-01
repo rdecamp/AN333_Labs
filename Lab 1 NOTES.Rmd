@@ -7,7 +7,6 @@ output: html_document
 
 ### Before lab starts: Population Assignment Priorities
 <br>
-<br>
 Here's the prioritized list of populations to assign, AKA the ones that will be the most interesting to look at in this class. I personally thought that the interesting ones to look at were those populations from warmer climates (such as many of the African populations) since they are more likely to have developed a mutation (or I guess since most of them are intron variants it would be a splicing variation) that would affect the functionality of UCP1 since they don't need it. 
 <br>
 
@@ -38,8 +37,11 @@ I think this is a good list of priority populations, since there's not gonna be 
 <br>
 
 ### Stuff that I may not have explained clearly enough
-
-
+<br>
+I tried to explain some concepts, such as alignment and the difference between the GRCh37 and GRCh38 Ensembl versions, but I'm not sure if I conveyed it clearly. You are welcome to edit these parts to make more sense to undergrads, or you may have to field questions about these topics.
+<br>
+<br>
+If you or the students are concerned about it, I don't really think it's that great of a concern that the data slicer is only available for GRCh37. I gave the explicit coordinates of the GRCh37 coordinates for UCP1, so all they really need to do is copy and paste. That's all I have to say about that. 
 
 
 
