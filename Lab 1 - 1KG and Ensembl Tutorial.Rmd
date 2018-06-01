@@ -7,6 +7,7 @@ output: html_document
 
 ## Introduction to the International Genome Sample Resource (Formerly known as the 1000 Genomes Project)
 <br>
+
 ![](1KGheader.png)
 <br>
 <br>
@@ -14,6 +15,7 @@ output: html_document
 The 1000 Genomes Project, which ran between 2008 and 2015, is what we could call a "catalogue of human variation." Essentially, it is a database of human genetic sequence from 26 distinct populations from around the world, which has been aligned to a human reference sequence. This data is free to use, and is an excellent resource for researchers who want to study genetic variation in a gene across populations, but cannot afford to collect their own samples. The 1000 Genomes project, had several phases in which they published their data; in their final phase (Phase 3), they had gathered samples from 2,504 individuals from the 26 populations. In 2015, the International Genome Sample Resource (IGSR) was established to "ensure the future usability and accessibility of the 1000 Genomes data." Some of the things the IGSR has done so far is re-mapped the Phase 3 data to the latest two human reference sequences, GRCh37 and GRCh38, incorporated published genomic data (such as RNA-seq data) in to their dataset, as well as begun the process of expanding the number of populations represented in the database. Below is a map of the current populations represented in the 1000 Genomes dataset, as well as reference list of the abbreviations used to identify the populations in the 1000 Genomes dataset that you can use throughout the labs.  
 <br>
 <br>
+
 ![](1KGmap.png)
 <br>
 <br>
@@ -291,7 +293,6 @@ Now, on to the tutorial!
 <br>
 
 ![](body.png)
-<br>
 <br>
 
 We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the data slicer process. 
