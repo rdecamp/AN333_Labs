@@ -222,13 +222,111 @@ Let's do a little exercise, shall we? Above the table, there are some filtering 
 Now, turn back on all of the mutations that lie within the coding region of the gene AND will cause a change in genotype. Hint: I chose six types of mutation. After you're done choosing, hit "apply changes."
 <br>
 <br>
-Now that we have a shortlist of SNPs that will actually come in handy for us, let's look at Global Minor Allele Frequency. 
-
-(TBD if I actually need to write this part for this lab)
+Now that we have a shortlist of SNPs that will actually come in handy for us, let's learn how to get useful information about a specific SNP that we will use in later labs. 
 <br>
 <br>
 
-#### Step 3: Using the Data Slicer to Get VCF Data
+#### Step 3: Exploring A SNP Of Choice
+
+The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is simply the frequency at which the second most common allele (i.e. the minor allele) occurs in a population. We will be able to get population breakdowns of the MAF, but first we'll look at the Global MAF. 
+<br>
+ 
+* To do this, look at variant table with the results you filtered and find the "Global MAF" column. Click on the small grey arrows by the column header to sort the SNPs from highest-to-lowest MAF. The example SNP in the picture below has a Global MAF of 0.086, which means that 8.6% of the 1000 Genomes participants have the "T" allele as opposed to the "C" allele. 
+<br>
+<br>
+
+![](MAF.png)
+<br>
+<br>
+
+* Now that we know how to find out the MAF of a SNP, let's explore the SNP some more. Click on the "Variant ID" of the SNP that has the highest MAF. Clicking on that link will bring you to the SNP page, which looks like this: 
+<br>
+<br>
+
+![](Variant.png)
+<br>
+<br>
+
+* Under "Explore This Variant" there is several different tabs that will tell us different things about the SNP. In this class, we will be using two of these features in the future: "Population Genetics" and "Linkage Disequilibrium." Right now, we will do a quick tour of these tabs so you can just see how they work. 
+
+* First, click on the "Population Genetics" icon. You will get this page: 
+<br>
+<br> 
+
+![](popgen.png)
+<br>
+<br>
+
+* You can see in these pie charts that there are differences in the allele frequencies in each population. 
+
+* Scroll down to the table that gives you the allele frequency breakdown for all the 1000 Genomes populations. Here is an example section of the 1000 Genomes data table: 
+<br>
+<br>
+
+![](allelefreq.png)
+<br>
+<br>
+
+* From left to right, you can see the count numbers of how many C and T alleles reside in each population, as well as the heterozygous and homozygous genotype counts for each population. 
+<br>
+
+As an exercise, find your population in this table, and make sure you can find the allele and genotype counts for your population. This will come in handy when we do our Hardy-Weinberg lab. 
+<br>
+
+The final page we'll explore is the "Linkage Disequilibrium" page.
+
+* To do this, go back to the SNP page and click on the Linkage Disequilibrium icon. You will get this page: 
+<br>
+<br>
+
+![](LD.png)
+<br>
+<br>
+
+* Find your population. There are a few things we will look at. 
+
+* First, click on the right-most "View Plot" link for your population. The icon is a reddish triangle. A few things will come up on this page. 
+
+* The first thing you should see on the page is an image of Chromosome 4, with a red line marking where the SNP of interest is: 
+<br>
+<br>
+
+![](chromsnp.png)
+<br>
+<br>
+
+Think about how the location of this SNP on the chromosome will affect the likelihood of Linkage Disequilibrium. Is it more or less likely that this SNP will be out of Linkage Disequilibrium?
+
+* Scrolling down, you will see a plot. The plot will look like this:
+<br>
+<br>
+
+![](LDBlock.png)
+<br>
+<br>
+
+* This is a Linkage Disequilibrium block. When we talk about Linkage Disequilibrium, we will learn how to read one of these blocks. For now, just know what it looks like. 
+
+* Now, go back to the table on the previous page. For your population, click on the "Show" link under the "Variants in High LD" column. If your population has SNPs in high Linkage Disequilibrium, you will get a table that looks like this: 
+<br>
+<br>
+
+![](highLD.png)
+<br>
+<br>
+
+* This table shows us a couple of things that will come in handy later, like how far away a linked SNP is from the SNP of interest, what kind of SNP the linked SNP is, and which gene, if any, the linked SNP falls in. 
+<br>
+
+If your population DOESN'T have SNPs in high Linkage Disequilibrium, think about what that tells us about the importance of UCP1 in your population. 
+<br>
+<br>
+Now that we have explored some important features of the Ensembl website, we can learn how to download some data of our own!
+<br>
+<br>
+
+#### Step 4: Using the Data Slicer to Get VCF Data
+
 
 Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one part of the genome, it can be very annoying to work with a lot of extra data. The Ensembl data slicer is a convenient way to get only the amount of data that you want without using a programto cut it out yourself. Therefore, we will use this tool to get the data for our analysis of UCP1. 
 <br>
