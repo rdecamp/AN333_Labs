@@ -30,4 +30,4 @@ Now that we have gone over the basics of Hardy-Weinberg Equilibrium, we can star
 
 ### Hardy-Weinberg Equilibrium in Population Genetics
 <br>
-In population genetics studies, you will often see Hardy-Weinberg Equilibrium being used to measure whether the observed genotype frequencies are the same as the estimated genotype frequencies. This is often accompanied byt eh ,jn
+In population genetics studies, you will often see Hardy-Weinberg Equilibrium being used to measure whether the observed genotype frequencies are the same as the estimated genotype frequencies. This is often accompanied byt eh ,jnfgd
