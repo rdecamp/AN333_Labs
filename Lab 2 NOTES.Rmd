@@ -13,5 +13,5 @@ Here's a link to a paper that I would rather use: <https://www.liebertpub.com/do
 * What would it mean if there is a SNP in the gene UCP1 that is not in Hardy-Weinberg Equilibrium? Think not only about the phenotypic consequences, but what it says about the environment of the population. 
 
 * Think about your population. Would it make sense for your population to be influenced by evolutionary forces in the present day? Why or why not?
-
+ljh
 * kjb
