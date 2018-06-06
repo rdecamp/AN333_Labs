@@ -231,7 +231,7 @@ Now that we have a shortlist of SNPs that will actually come in handy for us, le
 The first thing we'll look is the Global Minor Allele Frequency (MAF). MAF is simply the frequency at which the second most common allele (i.e. the minor allele) occurs in a population. We will be able to get population breakdowns of the MAF, but first we'll look at the Global MAF. 
 <br>
  
-* To do this, look at variant table with the results you filtered and find the "Global MAF" column. Click on the small grey arrows by the column header to sort the SNPs from highest-to-lowest MAF. The example SNP in the picture below has a Global MAF of 0.086, which means that 8.6% of the 1000 Genomes participants have the "T" allele as opposed to the "C" allele. 
+* To do this, look at variant table with the results you filtered and find the "Global MAF" column. Click on the small grey arrows by the column header to sort the SNPs from highest-to-lowest MAF. The example SNP in the picture below has a Global MAF of 0.086, which means that 8.6% of the 1000 Genomes participants have the minor "T" allele as opposed to the major "C" allele. In the "Alleles" column, the major allele will always be listed first. 
 <br>
 <br>
 
