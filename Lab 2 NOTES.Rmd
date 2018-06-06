@@ -7,11 +7,15 @@ output: html_document
 ### About the Kim KS et al. paper: "The finding of new genetic polymorphism of UCP-1 A-1766G and its effects on body fat accumulation"
 
 So I don't really like this paper. First of all, they only looked at Korean women in this paper. Second, I was really annoyed at the way they described the SNPs. Since the SNP that they described was new, it wasn't much use when I googled the SNP to try and get its SNP ID number. The other SNP they mentioned is well-documented and is recorded to affect obesity phenotype dramatically. I googled this SNP and thought that it was a much better candidate to find a paper about. Additionally, once I found the SNP ID number, I was able to find the SNP on Ensembl and get 1000 Genomes data on it. The SNP alleles are actually incredibly diversified! I think it would be a good idea to have kids put the genotype frequencies for this SNP through the "True" HWE function as well as all the SNPs in the gene, because I think this would tell them a lot more about phenotype as well. 
+<br>
 Here's a link to a paper that I would rather use: <https://www.liebertpub.com/doi/pdf/10.1089/met.2013.0077>
+<br>
+Here's a link to another paper I would recommend, which is a paper about the population genetics uses for HWE: <https://link.springer.com/content/pdf/10.1007%2Fs11515-010-0580-x.pdf>
+- Although, maybe I should just pull from this paper for the introduction I'm writing for the HWE lab...
 
 ### Possible Homework Questions
 * What would it mean if there is a SNP in the gene UCP1 that is not in Hardy-Weinberg Equilibrium? Think not only about the phenotypic consequences, but what it says about the environment of the population. 
 
 * Think about your population. Would it make sense for your population to be influenced by evolutionary forces in the present day? Why or why not?
-ljh
-* kjb
+
+* What do you think would have to happen to your population in order for there to be a significant deviation from Hardy-Weinberg Equilibrium?
