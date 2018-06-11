@@ -36,3 +36,17 @@ Now that we have learned more about the applications of Hardy-Weinberg Equilibri
 * Research the consequence types of these SNPs in order to understand how these SNPs might affect the genome itself, and how they might affect genotype. 
 
 * Calculate the "True" Hardy-Weinberg Equilibrium using the Shiny App for A-3826G (SNP ID rs1800592), an upstream SNP that has known phenotypic consequences, and determine what the Hardy-Weinberg Equilibrium says about the population. 
+<br> 
+
+### Step 1: Accessing RStudio Via SCC
+<br>
+
+The first thing we need to do is access RStudio. If you remember from the tutorial, there are a few steps you need to do in order to log in. First, log in to SCC and enter your password: 
+
+```{bash, eval = F, echo = T}
+ssh -Y rdecamp@scc1.bu.edu
+```
+
+
+
+
