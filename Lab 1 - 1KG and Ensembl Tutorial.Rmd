@@ -396,9 +396,17 @@ Now, on to the tutorial!
 We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the data slicer process. 
 <br>
 
-* Finally, hit the "Download results file" button. You will get a zipped file with your data, which we will work with in the next lab. <br>
+* Hit the "Download results file" button. You will get a zipped file with your data, which we will work with in the next lab. Make sure you save it to a place where you remember where it is.
 
-### Congratulations, you now have your genetic data!
+* Rename this file with the acronym for your population. For example, a good name would be "YRI.vcf.gz"
+
+The last thing we'll do is to put our newly downloaded files in to the folders we made int he SCC tutorial. To do that: 
+<br>
+ 
+* Open a new Moba X Term window on the computer. 
+
+
+## Congratulations, you now have your genetic data!
 
 
 
