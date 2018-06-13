@@ -6,7 +6,6 @@ output: html_document
 ---
 ## Introduction to Hardy-Weinberg Equilibrium Lab
 <br>
-
 We have already discussed Hardy-Weinberg Equilibrium in class, but we haven't really linked it to population genetics yet. Today's lab will focus on the uses of Hardy-Weinberg Equilibrium in modern population genetics as we use R to look at Hardy-Weinberg Equilibrium in our assigned populations. 
 <br>
 
@@ -26,7 +25,6 @@ Now that we have learned more about the applications of Hardy-Weinberg Equilibri
 
 ### Learning Objectives
 <br>
-
 * Use the SCC and R coding language to observe and understand population differences in UCP1 variation.
 
 * Calculate Hardy-Weinberg Equilibrium for all UCP1 SNPs in individual populations using a traditional Chi Square test.
@@ -38,15 +36,79 @@ Now that we have learned more about the applications of Hardy-Weinberg Equilibri
 * Calculate the "True" Hardy-Weinberg Equilibrium using the Shiny App for A-3826G (SNP ID rs1800592), an upstream SNP that has known phenotypic consequences, and determine what the Hardy-Weinberg Equilibrium says about the population. 
 <br> 
 
-### Step 1: Accessing RStudio Via SCC
+### Step 1: Accessing Rstudio and Your Data
 <br>
-
 The first thing we need to do is access RStudio. If you remember from the tutorial, there are a few steps you need to do in order to log in. First, log in to SCC and enter your password: 
-
+<br>
 ```{bash, eval = F, echo = T}
-ssh -Y rdecamp@scc1.bu.edu
+ssh -Y username@scc1.bu.edu
+```
+
+Then, go to your directory: 
+<br>
+```{bash, eval = F, echo = T}
+cd /project/anth333/yourfilename
+```
+
+(Do we want them to put the data in their directories now or in Lab 1?)
+<br>
+<br>
+Finally, open up R Studio with the following commands: 
+<br>
+```{bash, eval = F, echo = T}
+module load gcc #we need this module to load R packages
+module load R
+rstudio #this will launch R Studio
 ```
 
 
+### Step 2: Calculating Hardy-Weinberg Equilibrium Using Chi-Square
+<br> 
+Now that we are in R Studio and have our data, we can get started. The first thing we need to do here is install two packages. 
+<br>
+<br>
+Put simply, packages are bundles of functions that R users have written to perform analyses that do not come with the base program. In this class we will be using packages that were designed for population genetics analysis. To install these packages, run these two lines of code in the console: 
+<br>
+```{r, eval=F, echo=T}
+install.packages("vcfR")
+install.packages("pegas")
+```
 
+We only need to install these packages once, but we need to load them in to our workspace every time we open the program. To do this, use the following code: 
+<br>
+```{r, results = 'hide', message=F, warning=F}
+library(vcfR)
+library(pegas)
+```
 
+Now that we have all our modules loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF file in your folder. We need to load this file in to our workspace much like we did with our R packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this fiile in accordance with the acronym of your population. I will use the YRI population as an example of how to do this: 
+<br>
+```{r, echo=T, results='hide'}
+ YRI <- read.vcfR("YRI.vcf.gz", verbose = TRUE)
+```
+
+This will give you a file in your workspace called a "vcfR" file, because we used a function from the vcfR package to load our data. Most genetics-based packages have their own way of formatting and working with genetic data. When working with these packages, you often have to convert from one format to another if you want to use functions from different packages to do your analysis. Therefore, the next line of code will seem a little counterintuitive, because we have to change the format of the file to work with functions in the Pegas package. But, the good news is that doing this will not delete the original file (as long as you name the file something different), so we can use the vcfR file again. The type of file we have to convert to is called "genind," so we will do that here: 
+<br>
+```{r}
+pegas.YRI <- vcfR2genind(YRI, sep = "[|/]")
+```
+
+Finally, now that we have our data in the format that we need, we can do our Hardy-Weinberg tests. This function will test whether all of your population's SNPs in the coding region of UCP1 are in Hardy-Weinberg Equilibrium. As an example, I will run the funtion with my pegas.YRI file. Remember to save your results by assigning them a name:
+<br>
+```{r}
+HWEYRI <- hw.test(pegas.YRI, B = 0) #B MUST equal 0 here, changing this value will affect the result!
+HWEYRI #Typing the name of your results file will print the results
+```
+
+What you'll get is this table. On the right is a list of P-values. Look over your P-values to see if any of them are significant (< 0.05). If any of your P-values are significant, this means that that SNP is not in Hardy-Weinberg Equilibrium! Record the SNP ID numbers that have significant P-values, because they will be important for what we do next. 
+<br>
+<br>
+Hopefully, some of you have found that there are SNPs in your population that are not in Hardy-Weinberg Equilibrium. That's exciting! But, think back to the Wigginton paper. There is a large Type 1 Error rate for Hardy-Weinberg tests performed by using a Chi-Square test. Therefore, we will test our significant SNPs for type 1 error using the Shiny App calculator I created. Here's how we will do that: 
+
+### Step 3: Finding the "True" Hardy-Weinberg Equilibrium
+<br>
+No more coding will happen in this lab. Instead, you will be interacting with a user interface that was created to calculate "true" Hardy-Weinberg Equilibrium P-values for one SNP at a time. The input for this UI will be the genotype frequencies from your population (i.e. the number of people from the population with the heterozygous genotype, the number of people with one homozygous genotype, etc.). You will find this information on Ensembl by doing the following: 
+<br> 
+* Make a shortlist of SNP ID numbers of the SNPs that you found not to be in Hardy-Weinberg Equilibrium. When making this list, check the 'degrees of freedom,' column. This UI will only accept SNPs with only two alleles, or one degree of freedom. Therefore, even though there are SNPs with more than two alleles that are not in Hardy-Weinberg Equilibrium, we will ignore them for now.  
+
+* Go to the UCP1 gene page on Ensembl and click on the "Variant table" tab so you get this page: 
