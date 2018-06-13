@@ -16,8 +16,14 @@ Here's a link to another paper I would recommend, which is a paper about the pop
 ### Possible Homework Questions
 * What would it mean if there is a SNP in the gene UCP1 that is not in Hardy-Weinberg Equilibrium? Think not only about the phenotypic consequences, but what it says about the environment of the population. 
 
-* Think about your population. Would it make sense for your population to be influenced by evolutionary forces in the present day? Why or why not?
+* Think about your population. Would it make sense for your population's UCP1 genotype/phenotype to be influenced by evolutionary forces in the present day? Why or why not?
 
-* What do you think would have to happen to your population in order for there to be a significant deviation from Hardy-Weinberg Equilibrium?
+* What do you think would have to happen to your population in order for there to be a significant deviation from Hardy-Weinberg Equilibrium in the UCP1 gene?
+<br>
+<br>
 
-* Where is the SNP A-3826G located in relation to UCP1? According to Rose et al., what phenotypic consequences can this SNP have?
+![](genemap.png)
+<br>
+<br>
+
+* Imagine that gene map above represents UCP1. Based on the Rose et al. article, where on the map is the SNP A-3826G? How would the placement of this SNP affect UCP1 phenotype?  
