@@ -12,6 +12,8 @@ Here's the prioritized list of populations to assign, AKA the ones that will be 
 
 * STU - Sri Lankan Tamil in the UK. The only population that has a SNP out of HWE that's not an intron SNP. Could have possible implications in adaptations to UK environment from the native environment. 
 
+* ITU - Indian Telugu in UK. This is the ONLY population in which A-3826G SNP is NOT in HWE. Possible implications for adaptations to UK environment? 
+
 * LWK - Luhya in Webuye, Kenya. Interesting because it has two false positives, one of which has a "true" P value VERY different from the Chisq. P-value. It does have one SNP truly out of HWE which is interesting for a warmer climate. It is an intron variant, so perhaps it affects the splicing of the gene. 
 
 * FIN - Finnish in Finland. Interesting because all of the SNPs out of HWE are false positives. You would think there would be something here because Finland is a cold place, but I guess not...
