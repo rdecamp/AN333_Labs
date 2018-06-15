@@ -36,7 +36,7 @@ Now that we have learned more about the applications of Hardy-Weinberg Equilibri
 * Calculate the "True" Hardy-Weinberg Equilibrium using the Shiny App for A-3826G (SNP ID rs1800592), an upstream SNP that has known phenotypic consequences, and determine what the Hardy-Weinberg Equilibrium says about the population. 
 <br> 
 
-### Step 1: Accessing Rstudio and Your Data
+## Step 1: Accessing Rstudio and Your Data
 <br>
 The first thing we need to do is access RStudio. If you remember from the tutorial, there are a few steps you need to do in order to log in. First, log in to SCC and enter your password: 
 <br>
@@ -49,9 +49,8 @@ Then, go to your directory:
 ```{bash, eval = F, echo = T}
 cd /project/anth333/yourfilename
 ```
+Your VCF file should be in there from last time. 
 
-(Do we want them to put the data in their directories now or in Lab 1?)
-<br>
 <br>
 Finally, open up R Studio with the following commands: 
 <br>
@@ -62,7 +61,7 @@ rstudio #this will launch R Studio
 ```
 
 
-### Step 2: Calculating Hardy-Weinberg Equilibrium Using Chi-Square
+## Step 2: Calculating Hardy-Weinberg Equilibrium Using Chi-Square
 <br> 
 Now that we are in R Studio and have our data, we can get started. The first thing we need to do here is install two packages. 
 <br>
@@ -81,7 +80,7 @@ library(vcfR)
 library(pegas)
 ```
 
-Now that we have all our modules loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF file in your folder. We need to load this file in to our workspace much like we did with our R packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this fiile in accordance with the acronym of your population. I will use the YRI population as an example of how to do this: 
+Now that we have all our modules loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF file in your folder. We need to load this file in to our workspace much like we did with our R packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this fiile in accordance with the acronym of your population. I will use the YRI population as an example: 
 <br>
 ```{r, echo=T, results='hide'}
  YRI <- read.vcfR("YRI.vcf.gz", verbose = TRUE)
@@ -97,7 +96,7 @@ Finally, now that we have our data in the format that we need, we can do our Har
 <br>
 ```{r}
 HWEYRI <- hw.test(pegas.YRI, B = 0) #B MUST equal 0 here, changing this value will affect the result!
-HWEYRI #Typing the name of your results file will print the results
+HWEYRI #Running the name of your results file will print the results
 ```
 
 What you'll get is this table. On the right is a list of P-values. Look over your P-values to see if any of them are significant (< 0.05). If any of your P-values are significant, this means that that SNP is not in Hardy-Weinberg Equilibrium! Record the SNP ID numbers that have significant P-values, because they will be important for what we do next. 
@@ -105,10 +104,151 @@ What you'll get is this table. On the right is a list of P-values. Look over you
 <br>
 Hopefully, some of you have found that there are SNPs in your population that are not in Hardy-Weinberg Equilibrium. That's exciting! But, think back to the Wigginton paper. There is a large Type 1 Error rate for Hardy-Weinberg tests performed by using a Chi-Square test. Therefore, we will test our significant SNPs for type 1 error using the Shiny App calculator I created. Here's how we will do that: 
 
-### Step 3: Finding the "True" Hardy-Weinberg Equilibrium
+## Step 3: Finding the "True" Hardy-Weinberg Equilibrium
 <br>
 No more coding will happen in this lab. Instead, you will be interacting with a user interface that was created to calculate "true" Hardy-Weinberg Equilibrium P-values for one SNP at a time. The input for this UI will be the genotype frequencies from your population (i.e. the number of people from the population with the heterozygous genotype, the number of people with one homozygous genotype, etc.). You will find this information on Ensembl by doing the following: 
 <br> 
-* Make a shortlist of SNP ID numbers of the SNPs that you found not to be in Hardy-Weinberg Equilibrium. When making this list, check the 'degrees of freedom,' column. This UI will only accept SNPs with only two alleles, or one degree of freedom. Therefore, even though there are SNPs with more than two alleles that are not in Hardy-Weinberg Equilibrium, we will ignore them for now.  
 
-* Go to the UCP1 gene page on Ensembl and click on the "Variant table" tab so you get this page: 
+* Make a shortlist of FOUR SNP ID numbers of the SNPs that you found not to be in Hardy-Weinberg Equilibrium. When making this list, check the 'degrees of freedom,' column. This UI will only accept SNPs with only two alleles, or one degree of freedom. Therefore, even though there are SNPs with more than two alleles that are not in Hardy-Weinberg Equilibrium, we will ignore them for now. If you do NOT have FOUR SNPs that meet these criteria, fill in your list with SNPs at random. Ultimately, EVERYONE should be looking at FOUR SNPs each. 
+
+* Go to the UCP1 gene page on Ensembl and click on the "Variant table" tab so you get this familiar page: 
+<br>
+<br>
+
+![](variantpage.png)
+<br>
+<br>
+
+* In the search bar at the top right of the variant table, type in the SNP ID number for one of your SNPs that's not in Hardy-Weinberg Equilibrium and search it. I will use the SNP rs6818140 to demonstrate this. 
+<br> 
+<br>
+
+![](rs6818140.png)
+<br>
+<br>
+
+* When you have found your SNP in the table, click on the SNP ID to get to the SNP page. From there, click on the "Population Genetics" tab to get the population genetics table. 
+
+* Find the "Genotype Frequency" column in this table: 
+<br>
+<br>
+
+![](genotypefreq.png)
+<br>
+<br>
+
+* Find your population in the table. Record the genotype frequency count numbers (heterozygous, homozygous 1 and homozygous 2). These will be your input to the UI below. Using this method, find these genotype frequencies for each SNP you want to test for Type 1 Error. 
+
+```{r, echo=F}
+library(shiny)
+
+shinyApp(
+   
+   ui <- fluidPage(
+  
+  # App title ----
+  titlePanel("True HWE Calculator"),
+  
+  # Sidebar layout with input and output definitions ----
+  sidebarLayout(
+    
+    # Sidebar panel for inputs ----
+    sidebarPanel(
+      
+      # Input: Slider for the number of bins ----
+      
+      numericInput("hetero", 
+                   "Heterozygous Genotype Count", 
+                   0),
+      
+      numericInput("hom1", 
+                   "Homozygous 1 Genotype Count", 
+                   0),
+      
+      numericInput("hom2", 
+                   "Homozygous 2 Genotype Count", 
+                   0)
+      
+    ),
+    
+    # Main panel for displaying outputs ----
+    mainPanel(
+      
+  
+      textOutput("HWE")
+      
+    )
+  )
+),
+server = function(input, output) {
+  
+  output$HWE <- renderText({if (input$hom1 < 0 || input$hom2 < 0 || input$hetero < 0)
+    return(-1.0)
+    
+    # total number of genotypes
+    N <- input$hom1 + input$hom2 + input$hetero
+    
+    # rare homozygotes, common homozygotes
+    obs_homr <- min(input$hom1, input$hom2)
+    obs_homc <- max(input$hom1, input$hom2)
+    
+    # number of rare allele copies
+    rare  <- obs_homr * 2 + input$hetero
+    
+    # Initialize probability array
+    probs <- rep(0, 1 + rare)
+    
+    # Find midpoint of the distribution
+    mid <- floor(rare * ( 2 * N - rare) / (2 * N))
+    if ( (mid %% 2) != (rare %% 2) ) mid <- mid + 1
+    
+    probs[mid + 1] <- 1.0
+    mysum <- 1.0
+    
+    # Calculate probablities from midpoint down 
+    curr_hets <- mid
+    curr_homr <- (rare - mid) / 2
+    curr_homc <- N - curr_hets - curr_homr
+    
+    while ( curr_hets >=  2)
+    {
+      probs[curr_hets - 1]  <- probs[curr_hets + 1] * curr_hets * (curr_hets - 1.0) / (4.0 * (curr_homr + 1.0)  * (curr_homc + 1.0))
+      mysum <- mysum + probs[curr_hets - 1]
+      
+      # 2 fewer heterozygotes -> add 1 rare homozygote, 1 common homozygote
+      curr_hets <- curr_hets - 2
+      curr_homr <- curr_homr + 1
+      curr_homc <- curr_homc + 1
+    }    
+    
+    # Calculate probabilities from midpoint up
+    curr_hets <- mid
+    curr_homr <- (rare - mid) / 2
+    curr_homc <- N - curr_hets - curr_homr
+    
+    while ( curr_hets <= rare - 2)
+    {
+      probs[curr_hets + 3] <- probs[curr_hets + 1] * 4.0 * curr_homr * curr_homc / ((curr_hets + 2.0) * (curr_hets + 1.0))
+      mysum <- mysum + probs[curr_hets + 3]
+      
+      # add 2 heterozygotes -> subtract 1 rare homozygtote, 1 common homozygote
+      curr_hets <- curr_hets + 2
+      curr_homr <- curr_homr - 1
+      curr_homc <- curr_homc - 1
+    }    
+    
+    # P-value calculation
+    target <- probs[input$hetero + 1]
+    
+    #plo <- min(1.0, sum(probs[1:obs_hets + 1]) / mysum)
+    
+    #phi <- min(1.0, sum(probs[obs_hets + 1: rare + 1]) / mysum)
+    
+    # This assignment is the last statement in the fuction to ensure 
+    # that it is used as the return value
+    p <- min(1.0, sum(probs[probs <= target])/ mysum)})
+  
+}
+)
+```
+
