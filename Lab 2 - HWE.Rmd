@@ -127,7 +127,9 @@ No more coding will happen in this lab. Instead, you will be interacting with a 
 <br>
 <br>
 
-* When you have found your SNP in the table, click on the SNP ID to get to the SNP page. From there, click on the "Population Genetics" tab to get the population genetics table. 
+* When you have found your SNP in the table, you should first make note of the consequence type of the SNP. For example, rs6818140 is an intron variant. How do you think the consequence type will affect the kind of SNP? 
+
+* Next, click on the SNP ID to get to the SNP page. From there, click on the "Population Genetics" tab to get the population genetics table. 
 
 * Find the "Genotype Frequency" column in this table: 
 <br>
@@ -137,11 +139,10 @@ No more coding will happen in this lab. Instead, you will be interacting with a 
 <br>
 <br>
 
-* Find your population in the table. Record the genotype frequency count numbers (heterozygous, homozygous 1 and homozygous 2). These will be your input to the UI below. Using this method, find these genotype frequencies for each SNP you want to test for Type 1 Error. 
+* Find your population in the table. Record the genotype frequency count numbers (heterozygous, homozygous 1 and homozygous 2). These will be your input to the UI below. Using this method, find these genotype frequencies for each SNP you want to test. 
 
 ```{r, echo=F}
 library(shiny)
-
 shinyApp(
    
    ui <- fluidPage(
@@ -250,5 +251,18 @@ server = function(input, output) {
   
 }
 )
-```
 
+```
+<br>
+
+Record your results, and make sure to record the SNP ID of each SNP you are testing. The last thing we'll do is think about what the calculations you did today mean. 
+<br>
+
+## Step 4: What Do Your Results Mean? (with partner?)
+<br>
+
+Think about the results you produced today in the context of your population. Here are some guiding questions to help you: 
+<br>
+* If your population had SNPs that were not in Hardy-Weinberg Equilibrium, what kind of consequence did the SNP(s) have? How would that consequence type affect the phenotype? 
+
+* Does a SNP not being in Hardy-Weinberg Equilibrium mean that evolutionary forces are acting on it? How might evolutionary forces be acting on UCP1 if a SNP is not in Hardy-Weinberg Equilibrium? 
