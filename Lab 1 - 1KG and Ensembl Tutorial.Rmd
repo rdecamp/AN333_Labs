@@ -325,8 +325,7 @@ Now that we have explored some important features of the Ensembl website, we can
 <br>
 <br>
 
-#### Step 4: Using the Data Slicer to Get VCF Data
-
+#### Step 4: Getting Genetic Data For Your Population
 
 Usually when you are working with genomic information, you are given a whole chromosome or even a whole genome's worth of information in either a BAM file or a VCF file. If you only need to look at one part of the genome, it can be very annoying to work with a lot of extra data. The Ensembl data slicer is a convenient way to get only the amount of data that you want without using a programto cut it out yourself. Therefore, we will use this tool to get the data for our analysis of UCP1. 
 <br>
@@ -395,21 +394,68 @@ Now, on to the tutorial!
 
 We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the data slicer process. 
 <br>
+<br> 
 
-* Hit the "Download results file" button. You will get a zipped file with your data, which we will work with in the next lab. Make sure you save it to a place where you remember where it is.
+#### Step 5: Getting The File To SCC
 
-* Rename this file with the acronym for your population. For example, a good name would be "YRI.vcf.gz"
+The last thing we'll do is save our file and put our newly downloaded files in to the folders we made in the SCC tutorial with Charlie Jahnke. To do that: 
+<br> 
 
-The last thing we'll do is to put our newly downloaded files in to the folders we made int he SCC tutorial. To do that: 
+* Hit the "Download results file" button. You will get a file with your data. Rename this file with the acronym for your population. For example, I downloaded data from the YRI population, so I named this file "YRI.vcf." Save the file to the desktop. 
+<br> 
+<br> 
+
+![](saving.png)
 <br>
- 
-* Open a new Moba X Term window on the computer. 
+<br>
 
+* Open a new Moba X Term window on the computer and double-click on "user sessions" (highlighted here). 
+<br>
+<br>
 
-## Congratulations, you now have your genetic data!
+![](mobax1.png)
+<br>
+<br>
 
+* You will open the "session settings" window. Click on the SFTP tag. In the "remote host" box, type "scc1.bu.edu." Type your BU username in to the Username box. Hit "OK."
+<br>
+<br>
 
+![](mobax2.png)
+<br>
+<br>
 
+* Enter your BU password in the popup box. 
+<br>
+<br>
 
+![](mobax3.png)
+<br>
+<br>
 
+* Now you have an interactive interface where you can see all the files loaded in to your SCC account. In the highlighted box, type the file path that you created in the pre-lab to store your data.
+<br>
+<br>
 
+![](mobax4.png)
+<br>
+<br>
+
+* Now you are in the directory you will use for this class. Go to the desktop of the computer, and your downloaded file should be right on the home screen. Simply drag the file from the desktop and drop it in to your directory's interface like so:
+<br>
+<br>
+
+![](mobax5.png)
+<br>
+<br>
+
+After you drag and drop your file, you'll see it in your directory: 
+<br>
+<br>
+
+![](mobax6.png)
+<br>
+<br>
+And now, you're good to go for Lab 2!
+
+# Congratulations, you now have your genetic data!
