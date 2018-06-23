@@ -83,6 +83,8 @@ library(pegas)
 Now that we have all our modules loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF file in your folder. We need to load this file in to our workspace much like we did with our R packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this fiile in accordance with the acronym of your population. I will use the YRI population as an example: 
 <br>
 ```{r, echo=T, results='hide'}
+#Note that, while I have the .gz extension on my file, you may not. If your file is just .vcf, that's all you need to put in. 
+
  YRI <- read.vcfR("YRI.vcf.gz", verbose = TRUE)
 ```
 
