@@ -356,7 +356,7 @@ Now, on to the tutorial!
 
 * First off, the file format should be set for VCF. If it's not, click the drop-down menu and select VCF. 
 
-* In the "region lookup" bar, copy and paste in the location <b> 4:141,480,588-141,489,959</b>. These are the GRCh37 version alignment coordinates for the gene UCP1. 
+* In the "region lookup" bar, copy and paste in the location <b> 4:141,480,588-141,489,959</b>. These are the GRCh37 version alignment coordinates for the gene UCP1. This is the larger of the two chunks we will be taking.  
 
 * In in the "Choose data file" dropdown list, make sure "phase 3" is selected. This will ensure you get data from the last phase of the 1000 Genomes project. 
 
@@ -370,9 +370,11 @@ Now, on to the tutorial!
 <br>
 <br>
 
-* Hit the "run" button at the bottom of the page. 
+* Hit the "run" button at the bottom of the page.
 
-* This table will pop up, and will tell you when your job has been processed. Click "View results" to look at your results. 
+* At the top of the page, hit "New Job" and <b>repeat this process</b>, but this time with the coordinates <b>4:141481462-141485260</b>. These are the coordinates for the smaller slice that we will be taking. 
+
+* When you have clicked "run" for both jobs, you will see this table will pop up, and will tell you when your job has been processed. Click "View results" to look at your results. 
 <br>
 
 ![](job.png)
@@ -392,7 +394,7 @@ Now, on to the tutorial!
 ![](body.png)
 <br>
 
-We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the data slicer process. 
+We check our file to see if the body is there because sometimes the server will malfunction and give you only the head of the VCF file. If that happens, repeat the data slicer process. Check both files in this same way.  
 <br>
 <br> 
 
@@ -401,7 +403,7 @@ We check our file to see if the body is there because sometimes the server will 
 The last thing we'll do is save our file and put our newly downloaded files in to the folders we made in the SCC tutorial with Charlie Jahnke. To do that: 
 <br> 
 
-* Hit the "Download results file" button. You will get a file with your data. Rename this file with the acronym for your population. For example, I downloaded data from the YRI population, so I named this file "YRI.vcf." Save the file to the desktop. 
+* Hit the "Download results file" button for both of your slices. You will get a file with your data. Rename the full UCP1 file with the acronym for your population. Name the smaller file with the acronym and then "small." For example, I downloaded data from the YRI population, so I named the larger file "YRI.vcf" and will name the smaller file "YRIsmall.vcf." Save the files to the desktop.
 <br> 
 <br> 
 
@@ -441,7 +443,7 @@ The last thing we'll do is save our file and put our newly downloaded files in t
 <br>
 <br>
 
-* Now you are in the directory you will use for this class. Go to the desktop of the computer, and your downloaded file should be right on the home screen. Simply drag the file from the desktop and drop it in to your directory's interface like so:
+* Now you are in the directory you will use for this class. Go to the desktop of the computer, and your two downloaded files should be right on the home screen. Simply drag both of your files from the desktop and drop them in to your directory's interface like so:
 <br>
 <br>
 
@@ -449,7 +451,7 @@ The last thing we'll do is save our file and put our newly downloaded files in t
 <br>
 <br>
 
-After you drag and drop your file, you'll see it in your directory: 
+After you drag and drop your files, you'll see them in your directory: 
 <br>
 <br>
 
