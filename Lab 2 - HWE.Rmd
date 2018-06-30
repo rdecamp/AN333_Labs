@@ -260,7 +260,7 @@ server = function(input, output) {
 Record your results, and make sure to record the SNP ID of each SNP you are testing. The last thing we'll do is think about what the calculations you did today mean. 
 <br>
 
-## Step 4: What Do Your Results Mean? (with partner?)
+## Step 4: What Do Your Results Mean? Discuss with a partner: 
 <br>
 
 Think about the results you produced today in the context of your population. Here are some guiding questions to help you: 
