@@ -6,7 +6,7 @@ output: html_document
 ---
 ## Introduction to Linkage Disequilibrium (LD)
 <br>
-As we have learned in class, LD is simply the non-random assortment of alleles at different loci. Linked alleles will travel with each other during crossover events during meiosis, and if we know LD between two alleles is present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within UCP1 in our own populations to get both a sense of the amount of linkage within the gene, and what that linkage can tell us about our population's history. 
+As we have learned in class, LD is simply the non-random assortment of alleles at different loci. Linked alleles will travel with each other during crossover events during meiosis, and if we know LD between two alleles is present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within UCP1 in our own populations to get both a sense of the amount of linkage within the gene, and what that linkage can tell us about our population's history. d
 <br>
 ### How Close Do SNPs Have To Be To Be In LD? 
 <br>
