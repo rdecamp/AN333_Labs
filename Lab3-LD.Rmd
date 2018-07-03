@@ -73,7 +73,6 @@ One error message you will notice is "variants with >1 ALT allele are set to NA 
 
 ```{r}
 #Repeat this process with your smaller slice of UCP1: 
-library(functional)
 vcfsmall <- readVcf("YRIsmall.vcf", "hg19")
 
 YRIsmallmatrix <- genotypeToSnpMatrix(vcfsmall)
