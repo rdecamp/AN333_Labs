@@ -4,24 +4,20 @@ author: "Becca DeCamp"
 date: "6/15/2018"
 output: html_document
 ---
-Basic plan: 
-
-- Intro: Explain intergenic LD, talk about 4 SNPs that we're going to focus on, talk about difference between D' and R^2 tests when looking at LD. 
-
-- Have them read it in and do LD with SnpStats. Tell them that the table is confusing and not to worry about it. 
-
-- Have them make LDheatmap with the image function, just to get a sense of the basic pattern of their LDheatmap. 
-
-- Have them make LDheatmap with package (possibly from smaller snippet, although I don't think it's really that bad tbh.) Have them label just the SNPs from the article and Ensembl. This would be where we would look at the smaller block; looking specifically at the SNPs associated with obesity and if theyre in LD according to their analyses. Have them make it with both R^2 and D', to see how they differ. 
-
-- Have them download image file as a png so they can use it as a figure for their report. 
-
-- Have them look at Ensembl, and look at the LD block there. Is the pattern similar? Different? 
-
-- Have them look at alleles that are in LD with it. Are there SNPs not from UCP1? Are there phenotypic consequences linked to any of the alleles in LD? 
-
-
 ## Introduction to Linkage Disequilibrium (LD)
+<br>
+As we have learned in class, LD is simply the non-random assortment of alleles at different loci. Linked alleles will travel with each other during crossover events during meiosis, and if we know LD between two alleles is present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within UCP1 in our own populations to get both a sense of the amount of linkage within the gene, and what that linkage can tell us about our population's history. 
+<br>
+### How Close Do SNPs Have To Be To Be In LD? 
+<br>
+### Our SNPs of Focus
+<br>
+In the Ramos et al. paper that you read for homework, they looked at 3 SNPs within UCP1 that were thought to be associated with obesity:  rs6536991, rs22705565 and rs1250257. The results found that only rs6536991 was directly associated with obesity in the population they looked at (Brazil), but the other two alleles, rs22705565 and rs1250257, were found to be in various levels of linkage to rs6536991. We will take a closer look at these three SNPs in our own populations, as well as another SNP called rs35243591 that is associated with obesity according to Ensembl. Additionally, the 1000 Genomes Project found various frequencies of LD between this SNP and other SNPs in UCP1. 
+<br>
+
+### A Note On D' and R^2^
+<br>
+We will be using two statistics to gauge LD in our populations: D' and R^2^. Both of these are useful for determining the amount of linkage between two SNPs, but each statistic tells us something slightly different. D' is slightly easier to understand, it simply is a measure of the predictability of one SNP's genotype based on the other. A D'=1 is perfect LD, and D'=0 is Linkage Equilibrium. R^2^ is a little bit different. This statistic will also take in to account the frequency of the allele in question. If one SNP genotype is linked to another, but the linked genotype of one SNP is the minor allele (less common than the other genotype), the R^2^ value will be lower than the D' value. This, however, does not make the SNPs any less linked, it is just taking in to account allele frequency. 
 
 ### Learning Objectives
 
@@ -31,7 +27,7 @@ Basic plan:
 
 * Learn how to create an LD heatmap using both D' and R^2 to evaluate LD between SNPs
 
-* Learn how to use Ensembl to look at SNPs in LD with UCP1 that are in other genes
+* Learn how to use Ensembl to look at SNPs in UCP1 that are in LD with SNPs in other genes
 
 ## Step 1: Getting To RStudio And Preparing Your Data
 <br>
@@ -71,14 +67,17 @@ vcfbig <- readVcf("YRI.vcf", "hg19")
 
 YRImatrix <- genotypeToSnpMatrix(vcfbig)
 YRImatrix #repeating the file name will show you what it looks like
+```
+<br>
+One error message you will notice is "variants with >1 ALT allele are set to NA non-single nucleotide variations are set to NA." This means that loci with 3 or more alleles are not included in any of these analyses. Because of this, you will notice a lot of what appears to be linkage equilibrium when making your charts, but this is merely due to the functions' inability to process LD between SNPs with more than 2 alleles. 
 
+```{r}
 #Repeat this process with your smaller slice of UCP1: 
-
+library(functional)
 vcfsmall <- readVcf("YRIsmall.vcf", "hg19")
 
 YRIsmallmatrix <- genotypeToSnpMatrix(vcfsmall)
 head(YRIsmallmatrix)
-
 ```
 <br>
 Now what you'll notice is that the "SNPMatrix" files we made actually are actually two separate files under one file name, and only one of them is the actual SNPMatrix. In order to call only the SNPMatrix in our functions, we will use "$genotypes" after our SNPMatrix's name. You will see this in our following analyses. 
@@ -90,7 +89,6 @@ Next, we will be using a function from the SNPStats package to look at LD across
 <br>
 ```{r}
 #For "Stats," use "R.squared" for now. We will explore D' later. Make sure to substitute "YRImatrix" for what you called your larger SNPMatrix
-
 LD <- ld(YRImatrix$genotypes, depth = 200, stats = "R.squared")
 head(LD)
 ```
@@ -162,4 +160,15 @@ View(smallheatmapD$LDmatrix)
 ```
 <br>
 
-## Part 4: What Do Your Results Mean? 
+## Part 4: Using Ensembl To Look For Other SNPs In LD 
+
+## Part 5: What Do Your Results Mean? Discuss with a partner: 
+<br>
+Think about the results you produced today in the context of your population. Here are some guiding questions to help you: 
+<br>
+
+* What does it mean for two SNPs in your population to be in LD? How would two obesity SNPs being in LD reflect selection in that population? 
+
+* Would you expect a high level of LD in UCP1 in your population based on its environment? Why or why not? 
+
+* What would LD between two obesity-related SNPs tell you about the evolutionary history of your population? 
