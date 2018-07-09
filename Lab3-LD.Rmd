@@ -1,5 +1,5 @@
 ---
-title: "Lab 3 - LD"
+title: "Lab 3 - LD in UCP1"
 author: "Becca DeCamp"
 date: "6/15/2018"
 output: html_document
@@ -8,8 +8,7 @@ output: html_document
 <br>
 As we have learned in class, LD is simply the non-random assortment of alleles at different loci. Linked alleles will travel with each other during crossover events during meiosis, and if we know LD between two alleles is present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within UCP1 in our own populations to get both a sense of the amount of linkage within the gene, and what that linkage can tell us about our population's history. d
 <br>
-### How Close Do SNPs Have To Be To Be In LD? 
-<br>
+
 ### Our SNPs of Focus
 <br>
 In the Ramos et al. paper that you read for homework, they looked at 3 SNPs within UCP1 that were thought to be associated with obesity:  rs6536991, rs22705565 and rs1250257. The results found that only rs6536991 was directly associated with obesity in the population they looked at (Brazil), but the other two alleles, rs22705565 and rs1250257, were found to be in various levels of linkage to rs6536991. We will take a closer look at these three SNPs in our own populations, as well as another SNP called rs35243591 that is associated with obesity according to Ensembl. Additionally, the 1000 Genomes Project found various frequencies of LD between this SNP and other SNPs in UCP1. 
@@ -160,6 +159,56 @@ View(smallheatmapD$LDmatrix)
 <br>
 
 ## Part 4: Using Ensembl To Look For Other SNPs In LD 
+<br>
+The last thing we'll do in this lab is look at look at Ensembl's information on LD for each of the SNPs we studied today in your populations. To do this: 
+<br>
+
+* Go to [Ensembl](https://useast.ensembl.org/Homo_sapiens/Info/Index) and search UCP1 in the Human searchbar as we have done before
+
+* In the left sidebar, go to the "Variant Table" tab to get the variant table: 
+<br>
+<br>
+
+![](variantpage.png)
+<br>
+<br>
+
+* Pick one of the variants we looked at today (rs6536991, rs35243591, rs2270565, and rs12502572) and enter it in the variant table search bar. Make note of what kind of consequence each SNP has. What does the consequence mean, and how might the consequence of a SNP affect its LD?  
+<br>
+<br>
+
+![](variantsearch.png)
+<br>
+<br>
+
+* Click on the Variant ID of the SNP you searched to get the SNP page. Click on the "Linkage Disequilibrium"
+tab under "Explore This Variant"
+<br>
+<br>
+
+![](snppageLD.png)
+<br>
+<br>
+
+* You will get this page. This should look familiar, because we visited it briefly in our introductory lab. You will get a page like this that has LD plots of the SNP for all of the 1000 Genomes populations. 
+<br>
+<br>
+
+![](LDpage.png)
+<br>
+<br>
+
+* You can play around with the LD calculator and the LD plots, but the first thing you should do is find your population in the table and click on the "show" button for "Variants in High LD." You will get this: 
+<br>
+<br>
+
+![](highLD.png)
+<br>
+<br>
+
+* Some populations will have more SNPs in high LD than others. Look specifically at the SNPs in high LD that are not in LD. In the example above, there is a SNP listed that is in the gene ELMOD2. 
+
+* Repeat this process for all four SNPs we looked at in today's lab. Where are the high LD SNPs that aren't in UCP1 located? Are any of them located in other genes? 
 
 ## Part 5: What Do Your Results Mean? Discuss with a partner: 
 <br>
@@ -171,3 +220,5 @@ Think about the results you produced today in the context of your population. He
 * Would you expect a high level of LD in UCP1 in your population based on its environment? Why or why not? 
 
 * What would LD between two obesity-related SNPs tell you about the evolutionary history of your population? 
+
+* If you found any SNPs in high LD with our UCP1 SNPs during the Ensembl exercise that are in a different gene, do a quick Google search on the gene(s). What does that gene code for? How could it be connected to UCP1? 
