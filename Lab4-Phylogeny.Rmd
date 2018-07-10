@@ -1,0 +1,62 @@
+---
+title: "Lab 4 - Nearest Neighbor Joining and Intro to Phylogeny"
+author: "Becca DeCamp"
+date: "7/9/2018"
+output: html_document
+---
+
+## Introduction to Nearest Neighbor Joining and Phylogenetics
+<br>
+
+## Step 1: Getting Started
+<br>
+Log in to the SCC launch RStudio, as per ususal: 
+<br>
+```{bash, eval = F, echo = T}
+#login
+ssh -Y username@scc1.bu.edu
+```
+<br>
+```{bash, eval = F, echo = T}
+#access your directory and load your R space
+cd /project/anth333/yourfilename
+module load gcc
+module load R
+rstudio
+```
+<br>
+Now, we will prepare our data for analysis. The main package we will be using is called APE (Analyses of Phylogenetics and Evolution), which uses a file format called a DNAbin. We will load in our data with the package vcfR, like we did in Lab 2, then we will convert our vcfR object to a DNAbin. 
+
+```{r, results='hide', message=F, warning=F}
+#First, load the packages: 
+
+library(vcfR)
+library(ape)
+```
+ (We will also install the package 'ggtree' which will help us graph our trees.)
+```{r, eval = F, echo = T}
+#(Now, we'll install ggtree from a site called Bioconductor:)
+
+source("https://bioconductor.org/biocLite.R")
+biocLite("ggtree")
+
+
+library(ggtree)
+```
+<br>
+Now, let's prepare our data. Again, I will be using the population YRI as an example. Remember to name your data according to your own population!
+<br>
+```{r}
+#read in data
+YRI <- read.vcfR("YRI.vcf")
+
+#create DNAbin
+YRIdna <- vcfR2DNAbin(YRI)
+YRIdna
+```
+
+## Step 2: Creating A Distance Matrix Using Kimura's Evolutionary Model
+<br>
+As we learned in the introduction, Kimura's Neutral Theory is a popular model of molecular evolution. The function we will be using to create a distance matrix will 
+
+
