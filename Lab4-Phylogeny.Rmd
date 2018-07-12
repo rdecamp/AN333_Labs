@@ -7,7 +7,22 @@ output: html_document
 
 ## Introduction to Nearest Neighbor Joining and Phylogenetics
 <br>
+Today we will be looking at not just our populations themselves, but the individuals in them and how they relate to one another. We will do this using the Nearest-Neighbor Joining method of tree-making, which you read about in preparation for the lab. This method of tree-making simply identifies which individuals are closest together and groups them together. It is one of the simplest ways of making a phylogenetic tree, even though it does not always follow the law of Maximum Parsimony (minimal evolution). But, as stated by Saitou and Nei, the tree with maximum parsimony is not always the correct tree for recovering the true shape of the tree. 
+<br>
+### Kimura's Neutral Theory of Evolution
+<br>
+Another important method we will be using today to compute how related the people in the population are to each other is Kimura's Neutral Theory. This theory states that most of the mutations occur during evolution are neutral mutations that don't affect the gene they occur in. Therefore, most of the mutations that stay in a population are neutral rather than beneficial. We will use this theory as a model when calculating the pairwise distances between the people in our populations. 
+<br>
+### Learning Outcomes: 
+<br>
 
+* Learn how to apply Kimura's Neutral Theory to our populations to create a matrix of genetic distances between individuals in a population
+
+* Learn how to use the <i>ape</i> package's Nearest Neighbor Joining algorithm to create a Nearest Neighbor Joining tree
+
+* Learn how to interpret a phylogenetic tree, and learn what it can tell us about molecular diversity within our populations
+
+<br>
 ## Step 1: Getting Started
 <br>
 Log in to the SCC launch RStudio, as per ususal: 
@@ -25,7 +40,7 @@ module load R
 rstudio
 ```
 <br>
-Now, we will prepare our data for analysis. The main package we will be using is called APE (Analyses of Phylogenetics and Evolution), which uses a file format called a DNAbin. We will load in our data with the package vcfR, like we did in Lab 2, then we will convert our vcfR object to a DNAbin. 
+Now, we will prepare our data for analysis. The main package we will be using is called <i>ape</> (Analyses of Phylogenetics and Evolution), which uses a file format called a DNAbin. We will load in our data with the package vcfR, like we did in Lab 2, then we will convert our vcfR object to a DNAbin. 
 
 ```{r, results='hide', message=F, warning=F}
 #First, load the packages: 
@@ -33,16 +48,7 @@ Now, we will prepare our data for analysis. The main package we will be using is
 library(vcfR)
 library(ape)
 ```
- (We will also install the package 'ggtree' which will help us graph our trees.)
-```{r, eval = F, echo = T}
-#(Now, we'll install ggtree from a site called Bioconductor:)
 
-source("https://bioconductor.org/biocLite.R")
-biocLite("ggtree")
-
-
-library(ggtree)
-```
 <br>
 Now, let's prepare our data. Again, I will be using the population YRI as an example. Remember to name your data according to your own population!
 <br>
@@ -55,8 +61,45 @@ YRIdna <- vcfR2DNAbin(YRI)
 YRIdna
 ```
 
-## Step 2: Creating A Distance Matrix Using Kimura's Evolutionary Model
+## Part 2: Creating A Distance Matrix Using Kimura's Evolutionary Model
 <br>
-As we learned in the introduction, Kimura's Neutral Theory is a popular model of molecular evolution. The function we will be using to create a distance matrix will 
+As we learned in the introduction, Kimura's Neutral Theory is a popular model of molecular evolution. We will tell the function we will be using to create a distance matrix that we want it to use Kimura's Neutral Theory to figure out how far the members of our population are from each other. Ultimately, this distance matrix is what we will use to build our tree. 
+
+```{r}
+#creating distance matrix from our DNAbin. "K80" signifies the Kimura model
+dist <- dist.dna(YRIdna, model = "K80")
+length(dist)
+
+#creating a data frame from this matrix so we can make a heatmap to look at our distance matrix. You will have to pop out the window to view the plot properly. 
+heatmap <- as.data.frame(as.matrix(dist))
+table.paint(heatmap, cleg=0, clabel.row=.5, clabel.col=.5)
+```
+<br>
+Isn't that cool? The darker the color is, the further the two individuals are from each other genetically. However, we aren't quite ready to draw conclusions yet. Next, we will make our tree. 
+<br>
+
+## Part 3: Creating and Exploring A Neighbor Joining Tree
+<br>
+Next, we will use the Nearest-Neighbor algorithm make our tree. We learned in the introduction how Nearest-Neighbor Joining trees work, so now we will apply this method to our own data to see what the diversity within our population looks like. 
+<br>
+```{r}
+#We simply input our distance matrix in to the neighbor joining algorithm and we have our tree! Make sure to name the tree after your own population!
+YRItree <- nj(dist)
+class(YRItree) #tree should be class "phylo"
+#Just a quick sneak peek at our tree before we plot it
+summary.phylo(YRItree)
+```
+<br>
+Our tree is ready to be plotted now! Before we do this, think about your population. Would you expect there to be a lot of molecular variation within the population, or only a little? How do you think a lot or a little molecular variation will present itself in the context of your tree? 
+<br>
+```{r}
+#Here is our tree now. Remember to plot your own tree and not mine!
+plot(YRItree, cex=0.5)
+```
+<br>
+As you can see from the example, YRI is a very molecularly diverse population in the context of UCP1, and there are many different nodes on the tree. How does your tree compare to the example tree from the YRI population? Is it more or less diverse than YRI? Do you think there is an adaptive reason for the amount of diversity in your population, or is it a product of human migration out of Africa? 
+<br>
+<br>
+
 
 

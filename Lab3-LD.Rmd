@@ -18,7 +18,7 @@ In the Ramos et al. paper that you read for homework, they looked at 3 SNPs with
 <br>
 We will be using two statistics to gauge LD in our populations: D' and R^2^. Both of these are useful for determining the amount of linkage between two SNPs, but each statistic tells us something slightly different. D' is slightly easier to understand, it simply is a measure of the predictability of one SNP's genotype based on the other. A D'=1 is perfect LD, and D'=0 is Linkage Equilibrium. R^2^ is a little bit different. This statistic will also take in to account the frequency of the allele in question. If one SNP genotype is linked to another, but the linked genotype of one SNP is the minor allele (less common than the other genotype), the R^2^ value will be lower than the D' value. This, however, does not make the SNPs any less linked, it is just taking in to account allele frequency. 
 
-### Learning Objectives
+### Learning Outcomes
 
 * Learn about rs6536991, rs35243591, rs2270565, and rs12502572 and their roles in obesity. 
 
