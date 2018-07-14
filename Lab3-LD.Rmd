@@ -6,7 +6,7 @@ output: html_document
 ---
 ## Introduction to Linkage Disequilibrium (LD)
 <br>
-As we have learned in class, LD is simply the non-random assortment of alleles at different loci. Linked alleles will travel with each other during crossover events during meiosis, and if we know LD between two alleles is present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within UCP1 in our own populations to get both a sense of the amount of linkage within the gene, and what that linkage can tell us about our population's history. d
+As we have learned in class, LD is simply the non-random assortment of alleles at different loci. Linked alleles will travel with each other during crossover events during meiosis, and if we know LD between two alleles is present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within UCP1 in our own populations to get both a sense of the amount of linkage within the gene, and what that linkage can tell us about our population's history.
 <br>
 
 ### Our SNPs of Focus
@@ -20,13 +20,14 @@ We will be using two statistics to gauge LD in our populations: D' and R^2^. Bot
 
 ### Learning Outcomes
 
-* Learn about rs6536991, rs35243591, rs2270565, and rs12502572 and their roles in obesity. 
+*	Learn about the SNPs rs6536991, rs35243591, rs2270565, and rs12502572 and their roles in obesity.
 
-* Learn how to use the package SNPStats to perform LD analysis in a population. 
+*	Learn how to use the package SNPStats to perform LD analysis in a population, including constructing LD matrices and LD heatmaps. 
 
-* Learn how to create an LD heatmap using both D' and R^2 to evaluate LD between SNPs
+*	Learn about the two statistics D' and R^2, which are the most commonly used statistics to evaluate LD between SNPs. Learn how they are different, and what they can tell us about LD in our population. 
 
-* Learn how to use Ensembl to look at SNPs in UCP1 that are in LD with SNPs in other genes
+*	Learn how to use Ensembl to look at long-distance LD between SNPs in UCP1 and SNPs in other genes. 
+<br>
 
 ## Step 1: Getting To RStudio And Preparing Your Data
 <br>

@@ -130,7 +130,7 @@ $(document).ready(function () {
 
 <div id="introduction-to-linkage-disequilibrium-ld" class="section level2">
 <h2>Introduction to Linkage Disequilibrium (LD)</h2>
-<p><br> As we have learned in class, LD is simply the non-random assortment of alleles at different loci. Linked alleles will travel with each other during crossover events during meiosis, and if we know LD between two alleles is present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within UCP1 in our own populations to get both a sense of the amount of linkage within the gene, and what that linkage can tell us about our population’s history. d <br></p>
+<p><br> As we have learned in class, LD is simply the non-random assortment of alleles at different loci. Linked alleles will travel with each other during crossover events during meiosis, and if we know LD between two alleles is present in a population we can even use the frequency of one allele to predict the frequency of the other allele. Today, we will look at LD within UCP1 in our own populations to get both a sense of the amount of linkage within the gene, and what that linkage can tell us about our population’s history. <br></p>
 <div id="our-snps-of-focus" class="section level3">
 <h3>Our SNPs of Focus</h3>
 <p><br> In the Ramos et al. paper that you read for homework, they looked at 3 SNPs within UCP1 that were thought to be associated with obesity: rs6536991, rs22705565 and rs1250257. The results found that only rs6536991 was directly associated with obesity in the population they looked at (Brazil), but the other two alleles, rs22705565 and rs1250257, were found to be in various levels of linkage to rs6536991. We will take a closer look at these three SNPs in our own populations, as well as another SNP called rs35243591 that is associated with obesity according to Ensembl. Additionally, the 1000 Genomes Project found various frequencies of LD between this SNP and other SNPs in UCP1. <br></p>
@@ -139,13 +139,13 @@ $(document).ready(function () {
 <h3>A Note On D’ and R<sup>2</sup></h3>
 <p><br> We will be using two statistics to gauge LD in our populations: D’ and R<sup>2</sup>. Both of these are useful for determining the amount of linkage between two SNPs, but each statistic tells us something slightly different. D’ is slightly easier to understand, it simply is a measure of the predictability of one SNP’s genotype based on the other. A D’=1 is perfect LD, and D’=0 is Linkage Equilibrium. R<sup>2</sup> is a little bit different. This statistic will also take in to account the frequency of the allele in question. If one SNP genotype is linked to another, but the linked genotype of one SNP is the minor allele (less common than the other genotype), the R<sup>2</sup> value will be lower than the D’ value. This, however, does not make the SNPs any less linked, it is just taking in to account allele frequency.</p>
 </div>
-<div id="learning-objectives" class="section level3">
-<h3>Learning Objectives</h3>
+<div id="learning-outcomes" class="section level3">
+<h3>Learning Outcomes</h3>
 <ul>
-<li><p>Learn about rs6536991, rs35243591, rs2270565, and rs12502572 and their roles in obesity.</p></li>
-<li><p>Learn how to use the package SNPStats to perform LD analysis in a population.</p></li>
-<li><p>Learn how to create an LD heatmap using both D’ and R^2 to evaluate LD between SNPs</p></li>
-<li><p>Learn how to use Ensembl to look at SNPs in UCP1 that are in LD with SNPs in other genes</p></li>
+<li><p>Learn about the SNPs rs6536991, rs35243591, rs2270565, and rs12502572 and their roles in obesity.</p></li>
+<li><p>Learn how to use the package SNPStats to perform LD analysis in a population, including constructing LD matrices and LD heatmaps.</p></li>
+<li><p>Learn about the two statistics D’ and R^2, which are the most commonly used statistics to evaluate LD between SNPs. Learn how they are different, and what they can tell us about LD in our population.</p></li>
+<li><p>Learn how to use Ensembl to look at long-distance LD between SNPs in UCP1 and SNPs in other genes. <br></p></li>
 </ul>
 </div>
 </div>
