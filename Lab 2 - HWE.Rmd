@@ -23,7 +23,7 @@ In order to determine how much the observed phenotype deviates from the espected
 Now that we have learned more about the applications of Hardy-Weinberg Equilibrium in modern population genetics, let's get to the lab! 
 <br>
 
-### Learning Objectives
+### Learning Outcomes
 <br>
 * Use the SCC and R coding language to observe and understand population differences in UCP1 variation.
 
