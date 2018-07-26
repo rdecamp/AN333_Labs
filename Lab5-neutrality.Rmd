@@ -1,0 +1,35 @@
+---
+title: "Lab 5 - Neutrality"
+author: "Becca DeCamp"
+date: "7/23/2018"
+output: html_document
+---
+
+## Introduction to Neutrality Statistics and Signs of Selection
+<br>
+In this lab, we will look at Neutrality Statistics, which are statistical tests designed to measure if SNPs are being selected for within a population. In this lab, we will go over what each of the statistics are and what they mean, then we will use them on our own data (with the exception of iHS). 
+
+### Fu and Li's D and F
+
+### Tajima's D
+<br>
+This is a fairly common neutrality statistic. We read the paper about this 
+
+### Integrated Haplotype Score (iHS)
+<br>
+Recent positive selection usually happens by selective sweeps (i.e. the rapid spread of a particular haplotype, driven by selection for alleles within that haplotype), which not only act upon the SNP that is being selected for, but the entire haplotype that the SNP is contained in. The consequence of this is that the alleles in these haplotypes become almost entirely homozygous because they are being so strongly selected for. An iHS score, or an Integrated Haplotype Score, is a test that is used to measure the amount of recent positive selection an allele has been under by looking for selective sweeps. It does this by identifying extended haplotypes (large sets of SNPs on a single region of the chromosome) and looking at how many homozygous SNPs reside in each haplotype. Mass homozygosity is recorded as a high iHS score, while low levels of homozygosity is recorded as a low iHS score. 
+
+
+## An Example of iHS With Cows
+<br>
+To do this example, I'm using the <i>rehh</i> package, which is a package that specifically looked for "Extended Haplotype Homozygosity," or evidence of selective sweeps. Therefore, we can use this package to look at an example of calculating an iHS score. The example will use the example data that is included with the <i>rehh</i> package, which is genetic data from cows. You can use 1000 Genomes data with this package, but that requires you to map and phase the data with other genomic analysis-specific programs such as SHAPEIT and Beagle. Therefore, we'll just use the example data with cows. But, as we walk through this example, make some predictions about what an iHS score in your population might look like. 
+
+```{r}
+library(rehh)
+
+make.example.files()
+
+hap <- data2haplohh(hap_file="bta12_cgu.hap",map_file="map.inp", recode.allele = TRUE)
+#note to self: use record.allele=TRUE
+```
+
