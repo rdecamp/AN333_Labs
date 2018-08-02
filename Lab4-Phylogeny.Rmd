@@ -7,11 +7,13 @@ output: html_document
 
 ## Introduction to Nearest Neighbor Joining and Phylogenetics
 <br>
+
 Today we will be looking at not just our populations themselves, but the individuals in them and how they relate to one another. We will do this using the Nearest-Neighbor Joining method of tree-making, which you read about in preparation for the lab. This method of tree-making simply identifies which individuals are closest together and groups them together. It is one of the simplest ways of making a phylogenetic tree, even though it does not always follow the law of Maximum Parsimony (minimal evolution). But, as stated by Saitou and Nei, the tree with maximum parsimony is not always the correct tree for recovering the true shape of the tree. 
 <br>
 
 ### Kimura's Neutral Theory of Evolution
 <br>
+
 Another important method we will be using today to compute how related the people in the population are to each other is Kimura's Neutral Theory. This theory states that most of the mutations occur during evolution are neutral mutations that don't affect the gene they occur in. Therefore, most of the mutations that stay in a population are neutral rather than beneficial. We will use this theory as a model when calculating the pairwise distances between the people in our populations. The model will also help us compute a timescale for our tree, as we can assume that neutral mutations happen at a certain rate. 
 <br>
 
@@ -22,7 +24,6 @@ Another important method we will be using today to compute how related the peopl
 * Learn how to use the <i>ape</i> package's Nearest Neighbor Joining algorithm to create a Nearest Neighbor Joining tree
 
 * Learn how to interpret a phylogenetic tree, and learn what it can tell us about molecular diversity within our populations
-
 <br>
 
 ## Step 1: Getting Started
@@ -66,6 +67,7 @@ YRIdna
 
 ## Part 2: Creating A Distance Matrix Using Kimura's Evolutionary Model
 <br>
+
 As we learned in the introduction, Kimura's Neutral Theory is a popular model of molecular evolution. We will tell the function we will be using to create a distance matrix that we want it to use Kimura's Neutral Theory to figure out how far the members of our population are from each other. Ultimately, this distance matrix is what we will use to build our tree. 
 
 ```{r}
