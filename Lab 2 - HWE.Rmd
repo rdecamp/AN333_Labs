@@ -80,7 +80,7 @@ library(vcfR)
 library(pegas)
 ```
 
-Now that we have all our modules loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF file in your folder. We need to load this file in to our workspace much like we did with our R packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this fiile in accordance with the acronym of your population. I will use the YRI population as an example: 
+Now that we have all our packages loaded, we can get to the analysis! In the "files" tab in the bottom left quadrant, you should see the VCF files we downloaded in your folder. We will be working with the larger VCF file today. We will need to load this file in to our workspace much like we did with our R packages. Unlike the packages, however, we need to give a name to the file. To make things simple, it would be a good idea to name this fiile in accordance with the acronym of your population. I will use the YRI population as an example: 
 <br>
 ```{r, echo=T, results='hide'}
 #Note that, while I have the .gz extension on my file, you may not. If your file is just .vcf, that's all you need to put in. 
@@ -97,8 +97,8 @@ pegas.YRI <- vcfR2genind(YRI, sep = "[|/]")
 Finally, now that we have our data in the format that we need, we can do our Hardy-Weinberg tests. This function will test whether all of your population's SNPs in the coding region of UCP1 are in Hardy-Weinberg Equilibrium. As an example, I will run the funtion with my pegas.YRI file. Remember to save your results by assigning them a name:
 <br>
 ```{r}
-HWEYRI <- hw.test(pegas.YRI, B = 0) #B MUST equal 0 here, changing this value will affect the result!
-HWEYRI #Running the name of your results file will print the results
+HWE <- hw.test(pegas.YRI, B = 0) #B MUST equal 0 here, changing this value will affect the result!
+HWE #Running the name of your results file will print the results
 ```
 
 What you'll get is this table. On the right is a list of P-values. Look over your P-values to see if any of them are significant (< 0.05). If any of your P-values are significant, this means that that SNP is not in Hardy-Weinberg Equilibrium! Record the SNP ID numbers that have significant P-values, because they will be important for what we do next. 
@@ -115,18 +115,14 @@ No more coding will happen in this lab. Instead, you will be interacting with a 
 
 * Go to the UCP1 gene page on Ensembl and click on the "Variant table" tab so you get this familiar page: 
 <br>
-<br>
 
 ![](variantpage.png)
-<br>
 <br>
 
 * In the search bar at the top right of the variant table, type in the SNP ID number for one of your SNPs that's not in Hardy-Weinberg Equilibrium and search it. I will use the SNP rs6818140 to demonstrate this. 
 <br> 
-<br>
 
 ![](rs6818140.png)
-<br>
 <br>
 
 * When you have found your SNP in the table, you should first make note of the consequence type of the SNP. For example, rs6818140 is an intron variant. How do you think the consequence type will affect the kind of SNP? 
@@ -135,10 +131,8 @@ No more coding will happen in this lab. Instead, you will be interacting with a 
 
 * Find the "Genotype Frequency" column in this table: 
 <br>
-<br>
 
 ![](genotypefreq.png)
-<br>
 <br>
 
 * Find your population in the table. Record the genotype frequency count numbers (heterozygous, homozygous 1 and homozygous 2). These will be your input to the UI below. Using this method, find these genotype frequencies for each SNP you want to test. 
@@ -265,6 +259,7 @@ Record your results, and make sure to record the SNP ID of each SNP you are test
 
 Think about the results you produced today in the context of your population. Here are some guiding questions to help you: 
 <br>
+
 * If your population had SNPs that were not in Hardy-Weinberg Equilibrium, what kind of consequence did the SNP(s) have? How would that consequence type affect the phenotype? 
 
 * Does a SNP not being in Hardy-Weinberg Equilibrium mean that evolutionary forces are acting on it? How might evolutionary forces be acting on UCP1 if a SNP is not in Hardy-Weinberg Equilibrium? 
