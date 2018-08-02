@@ -166,45 +166,35 @@ The last thing we'll do in this lab is look at look at Ensembl's information on 
 
 * Go to [Ensembl](https://useast.ensembl.org/Homo_sapiens/Info/Index) and search UCP1 in the Human searchbar as we have done before
 
-* In the left sidebar, go to the "Variant Table" tab to get the variant table: 
-<br>
+* In the left sidebar, go to the "Variant Table" tab to get the variant table:
 <br>
 
 ![](variantpage.png)
 <br>
-<br>
 
 * Pick one of the variants we looked at today (rs6536991, rs35243591, rs2270565, and rs12502572) and enter it in the variant table search bar. Make note of what kind of consequence each SNP has. What does the consequence mean, and how might the consequence of a SNP affect its LD?  
 <br>
-<br>
 
 ![](variantsearch.png)
-<br>
 <br>
 
 * Click on the Variant ID of the SNP you searched to get the SNP page. Click on the "Linkage Disequilibrium"
 tab under "Explore This Variant"
 <br>
-<br>
 
 ![](snppageLD.png)
-<br>
 <br>
 
 * You will get this page. This should look familiar, because we visited it briefly in our introductory lab. You will get a page like this that has LD plots of the SNP for all of the 1000 Genomes populations. 
 <br>
-<br>
 
 ![](LDpage.png)
-<br>
 <br>
 
 * You can play around with the LD calculator and the LD plots, but the first thing you should do is find your population in the table and click on the "show" button for "Variants in High LD." You will get this: 
 <br>
-<br>
 
 ![](highLD.png)
-<br>
 <br>
 
 * Some populations will have more SNPs in high LD than others. Look specifically at the SNPs in high LD that are not in LD. In the example above, there is a SNP listed that is in the gene ELMOD2. 
